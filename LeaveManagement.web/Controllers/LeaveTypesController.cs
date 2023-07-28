@@ -11,6 +11,7 @@ using LeaveManagement.web.Models;
 using LeaveManagement.web.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using LeaveManagement.web.Constant;
+using LeaveManagement.web.Repositories;
 
 namespace LeaveManagement.web.Controllers
 {
@@ -19,12 +20,15 @@ namespace LeaveManagement.web.Controllers
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IMapper _mapper;
+        private readonly ILeaveAllocationRespository _leaveAllocationRespository;
 
         public LeaveTypesController(ILeaveTypeRepository leaveTypeRepository,
+            ILeaveAllocationRespository leaveAllocationRespository,
             IMapper mapper)
         {
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
+            _leaveAllocationRespository = leaveAllocationRespository;
 
         }
 
@@ -155,6 +159,14 @@ namespace LeaveManagement.web.Controllers
         private  async Task<bool> LeaveTypeExists(int id)
         {
           return await _leaveTypeRepository.Exist(id);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AllocateLeave(int id)
+        {
+            await _leaveAllocationRespository.LeaveAllocation(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -16,6 +16,8 @@
 
         Task<T> AddAsync(T entity);
 
+        Task AddRangeAsync(List<T> entities);
+
         Task<T?> GetAsync(int? id);
     }
 }

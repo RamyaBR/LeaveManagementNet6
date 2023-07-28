@@ -21,6 +21,12 @@ namespace LeaveManagement.web.Repositories
            return entity;
         }
 
+        public async Task AddRangeAsync(List<T> entities)
+        {
+            await _context.AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
+        }
+
         public Task<T> CreateAsync(int id)
         {
             throw new NotImplementedException();

@@ -106,7 +106,7 @@ namespace LeaveManagement.web.Data.Migrations
                         {
                             Id = "408aa945-3d84-4421-8342-7269ec64d949",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "348c3521-a2e9-4204-9c42-531d0daf2ed8",
+                            ConcurrencyStamp = "73f9586e-1197-45e6-b110-89ebc5d730c5",
                             DateJoined = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@localhost.com",
@@ -116,9 +116,9 @@ namespace LeaveManagement.web.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPToL/kZ9WCtVUhkrJ6iHs7hneql9CpC1WZAXB91+04oIiYmKbedg5qmmkZg67cgfg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN9DREORhJan9IdjFA1eD9v/xTkiWFKn2Nm4OEvVmvHq9fQ4cv4RPJW6jnUzWU0U7A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ea8e56d6-48fd-4044-ae7e-a4bf8748e557",
+                            SecurityStamp = "4b2a44cd-46af-47c8-b698-d7f9ce6c7a72",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -126,7 +126,7 @@ namespace LeaveManagement.web.Data.Migrations
                         {
                             Id = "3f4631bd-f907-4409-b416-ba356312e659",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "18ed46cc-d9ea-45a5-a4a8-1d3489935a26",
+                            ConcurrencyStamp = "c94ff469-02a4-42b1-bdac-fde1bb69f0d4",
                             DateJoined = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@localhost.com",
@@ -136,9 +136,9 @@ namespace LeaveManagement.web.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECA1WNBwKkz0ZAddrNJLqGj+Sf0gfci1RqS96uK2vFo15J5Q7gCdFZIvGzQorYFGfw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHSPh5GAivH7laQV+QsPc+iHeKjs5a8N2hpyLvsdcfCrLqw5X04rAG/TF1ClM9BkEQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f18e1be3-8002-4b9a-aa00-8148e483b898",
+                            SecurityStamp = "35af8071-d99c-47d2-b7db-69474c058198",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });
@@ -168,6 +168,9 @@ namespace LeaveManagement.web.Data.Migrations
                     b.Property<int>("NumberOfDays")
                         .HasColumnType("int");
 
+                    b.Property<int>("Period")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("LeaveTypeId");
@@ -189,9 +192,8 @@ namespace LeaveManagement.web.Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DefaultDays")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DefaultDays")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -232,14 +234,14 @@ namespace LeaveManagement.web.Data.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "f7f396b1-b817-4497-acc4-6f497f5d964a",
+                            ConcurrencyStamp = "b1f8ae0c-4a9a-44f3-9f40-a5a7b3fc0ce8",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "cac43a7e-f7cb-4148-baaf-1acb431eabbf",
-                            ConcurrencyStamp = "566740df-6f10-433c-a046-52aea8c567d4",
+                            ConcurrencyStamp = "5e3372f9-f0a0-4bfd-aebc-60a58ef2efc3",
                             Name = "User",
                             NormalizedName = "USER"
                         });
